@@ -1,30 +1,3 @@
-
-
-"""
-
-Potrzebuję stronę html z następującymi elementami:
-1. Nagłówek: "Kalkulator BMI"
-2. Rysunek wagi (wskazówka wskazuje pierwotnie na 0)
-3. Input field "Jaka jest twoja waga (kg)?"
-4. Input field "Jaki jest twój wzrost (cm)?"
-5. Button "Sprawdź"
-6. Button "Clear" - aktywny tylko wtedy, gdy conajmniej jedno z poli nie jest puste
-
-
-Po naciśnięciu buttona uruchomiony zostanie rest, który w response otrzyma:
-1) bmi_status - w zależności od wartości, wskazówka wagi musi się zatrzymać na jednej z 6 stopni
-2) message - wyświetlony nad wagą
-
-Waga ma mieć efekt animacji - zależy mi na płynnym przejściu za stanu 0 na konkretny stopień
-
-"""
-
-
-
-
-
-
-
 underweight_mapping = [
     "No nie przesadzaj za bardzo z tym odchudzaniem - mogą być z tego problemy!",
     "Zastanów się - przegięcie w drugą stronę też jest niezdrowe. Jedz więcej!",
@@ -85,3 +58,4 @@ morbid_obesity_mapping = [
     "Twoja sytuacja wymaga natychmiastowej reakcji - znajdź specjalistę, który pomoże ci wrócić na dobrą drogę."
 
 ]
+

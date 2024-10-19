@@ -45,6 +45,23 @@ def rest_handler(weight, height):
     return result
 
 
+def needle_calculation(weight, height):
+    bmi = weight / (height / 100) ** 2
+    if bmi < 18.5:
+        response = 60
+    elif bmi < 24.9:
+        response = 90
+    elif bmi < 29.9:
+        response = 120
+    elif bmi < 34.9:
+        response = 180
+    elif bmi < 39.9:
+        response = 260
+    else:
+        response = 330
+
+    return response
+
 """
 while True:
     weight = int(input("Jaka jest twoja waga (kg)?\n"))
