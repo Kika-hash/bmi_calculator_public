@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.scale-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px auto;
+    border: 5px solid black;
+    border-radius: 50%;
+}
+
+.needle {
+    position: absolute;
+    width: 5px;
+    height: 50px;
+    background-color: red;
+    top: 50px;
+    left: 97px;
+    transform-origin: bottom center;
+    transform: rotate(0deg);
+    transition: transform 2s ease-out; /* Smooth transition */
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+#message {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: blue;
+}

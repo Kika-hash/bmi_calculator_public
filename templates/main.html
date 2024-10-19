@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator BMI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <h1>Kalkulator BMI</h1>
+
+    <div id="message"></div>
+
+    <div class="scale-container">
+        <div class="needle" id="needle"></div>
+    </div>
+
+    <div class="input-container">
+        <input type="number" id="weight" placeholder="Jaka jest twoja waga (kg)?" required>
+    </div>
+    <div class="input-container">
+        <input type="number" id="height" placeholder="Jaki jest twój wzrost (cm)?" required>
+    </div>
+
+    <button id="checkButton" onclick="checkBMI()">Sprawdź</button>
+    <button id="clearButton" onclick="clearFields()" disabled>Clear</button>
+
+    <script>
+        const needle = document.getElementById('needle');
+        const messageDiv = document.getElementById('message');
+        const clearButton = document.getElementById('clearButton');
+        const weightInput = document.getElementById('weight');
+        const heightInput = document.getElementById('height');
+
+        // Enable the "Clear" button if one of the fields is filled
+        document.addEventListener('input', () => {
+            clearButton.disabled = !(weightInput.value || heightInput.value);
+        });
+
+        function checkBMI() {
+            const weight = parseFloat(weightInput.value);
+            const height = parseFloat(heightInput.value);
+
+            if (!weight || !height || height <= 0) {
+                alert("Proszę podać prawidłowe dane.");
+                return;
+            }
+
+            // Example BMI calculation - you will replace this part with your REST API call
+            const bmiValue = weight / ((height / 100) ** 2);
+
+            // Dummy REST API response simulation (you will replace this with real API data)
+            let response = {};
+            if (bmiValue < 18.5) {
+                response = { bmi_status: 60, message: "Masz niedowagę." };
+            } else if (bmiValue < 24.9) {
+                response = { bmi_status: 120, message: "Twoja waga jest w normie." };
+            } else if (bmiValue < 29.9) {
+                response = { bmi_status: 180, message: "Masz lekką nadwagę." };
+            } else if (bmiValue < 34.9) {
+                response = { bmi_status: 240, message: "Umiarkowana otyłość." };
+            } else if (bmiValue < 39.9) {
+                response = { bmi_status: 300, message: "Ciężka otyłość." };
+            } else {
+                response = { bmi_status: 360, message: "Chorobliwa otyłość!" };
+            }
+
+            // Update needle position based on BMI status (0-180 degrees)
+            needle.style.transform = `rotate(${response.bmi_status}deg)`;
+
+            // Update message
+            messageDiv.textContent = response.message;
+        }
+
+        function clearFields() {
+            weightInput.value = '';
+            heightInput.value = '';
+            messageDiv.textContent = '';
+            needle.style.transform = 'rotate(0deg)'; // Reset needle to 0
+            clearButton.disabled = true;
+        }
+    </script>
+
+</body>
+</html>
