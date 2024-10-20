@@ -2,6 +2,7 @@ import random
 
 from communication_base import *
 
+
 bmi_ranges = {
     "underweight": 18.5,
     "normal_weight": 24.9,
@@ -16,6 +17,7 @@ def bmi_calculator(weight, height):
     bmi_result = bmi_status(bmi_value, bmi_ranges)
     return bmi_result
 
+
 def bmi_status(bmi_value, bmi_ranges):
     for key, value in bmi_ranges.items():
         if value > bmi_value:
@@ -23,7 +25,7 @@ def bmi_status(bmi_value, bmi_ranges):
     return "morbid_obesity"
 
 
-def bmi_communication(bmi_status, underweight_mapping, normal_weight_mapping, over_weight_mapping):
+def bmi_communication(bmi_status, underweight_mapping, normal_weight_mapping, over_weight_mapping, moderate_obesity_mapping, severe_obesity_mapping, morbid_obesity_mapping):
     match bmi_status:
         case "underweight":
             return underweight_mapping
@@ -38,9 +40,10 @@ def bmi_communication(bmi_status, underweight_mapping, normal_weight_mapping, ov
         case "morbid_obesity":
             return morbid_obesity_mapping
 
+
 def rest_handler(weight, height):
     bmi = bmi_calculator(weight, height)
-    communication = bmi_communication(bmi, underweight_mapping, normal_weight_mapping, over_weight_mapping)
+    communication = bmi_communication(bmi, underweight_mapping, normal_weight_mapping, over_weight_mapping, moderate_obesity_mapping, severe_obesity_mapping, morbid_obesity_mapping)
     result = random.choice(communication)
     return result
 

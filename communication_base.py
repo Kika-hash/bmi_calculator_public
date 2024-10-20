@@ -20,7 +20,7 @@ normal_weight_mapping = [
 
 over_weight_mapping = [
     "Za mały wzrost...",
-    "Ciut ci przybyło tu i tam -tragedii nie ma, ale opanuj się, zanim będzie za późno",
+    "Ciut ci przybyło tu i tam - tragedii nie ma, ale opanuj się, zanim będzie za późno",
     "Masz jeszcze czas, by coś zmienić, zanim zrobi się trudniej.",
     "Kilka zmian w diecie i więcej ruchu może szybko poprawić twoją sylwetkę!",
     "Jeszcze nie jest źle, ale lepiej działać teraz, zanim przytyjesz bardziej.",
@@ -56,6 +56,5 @@ morbid_obesity_mapping = [
     "Twoja waga stanowi realne zagrożenie - potrzebujesz pomocy, by wrócić do zdrowia.",
     "Chorobliwa otyłość to nie tylko kwestia estetyki, ale przede wszystkim zdrowia. Skontaktuj się z profesjonalistą!",
     "Twoja sytuacja wymaga natychmiastowej reakcji - znajdź specjalistę, który pomoże ci wrócić na dobrą drogę."
-
 ]
 
